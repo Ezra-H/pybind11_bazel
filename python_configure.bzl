@@ -382,7 +382,7 @@ def _python_autoconf_impl(repository_ctx):
     _create_local_python_repository(repository_ctx)
 
 # Configure Activated Python Environment
-python_configure = repository_rule(
+python_configure_pybind = repository_rule(
     implementation = _python_autoconf_impl,
     environ = [
         _BAZEL_SH,
@@ -398,7 +398,7 @@ python_configure = repository_rule(
 Add the following to your WORKSPACE FILE:
 
 ```python
-python_configure(name = "local_config_python")
+python_configure_pybind(name = "local_config_python")
 ```
 
 Args:
